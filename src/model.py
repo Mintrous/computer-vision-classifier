@@ -1,6 +1,5 @@
 from torchvision.models import resnet18, ResNet18_Weights
 from torch import nn
-from dataset import train_dataset
 
 def get_model(classes_num: int):
     model = resnet18(weights=ResNet18_Weights.DEFAULT)  # load the pre-trained ResNet-18 model

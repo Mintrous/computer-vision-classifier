@@ -1,7 +1,7 @@
 import torch
 from PIL import Image
 
-from dataset import classes, NUM_CLASSES
+from classes import CLASSES, NUM_CLASSES
 from transforms import eval_transform
 from utils import load_model
 
@@ -57,7 +57,7 @@ def predict(model, image, classes):
         confidence, predicted_class_index = torch.max(probabilities, dim = 1)
 
     predicted_index = predicted_class_index.item()
-    predicted_class = classes[predicted_index]
+    predicted_class = CLASSES[predicted_index]
     confidence = confidence.item()
 
     return predicted_class, confidence
@@ -83,7 +83,7 @@ def main():
     predicted_class, confidence = predict(
         model,
         image,
-        classes
+        CLASSES
     )
 
     print(f"image path: {IMAGE_PATH}")
